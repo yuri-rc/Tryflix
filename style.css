@@ -1,0 +1,234 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  background-color: rgb(50, 48, 53);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+h1 {
+  color: rgb(26, 163, 72);
+}
+
+.flix {
+  color: rgb(199, 25, 25);
+}
+
+#search {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#search-input {
+  border: none;
+  padding: 5px;
+  margin-right: 5px;
+  background-color: rgb(214, 214, 214);
+}
+
+/* https://stackoverflow.com/questions/3397113/how-to-remove-focus-border-outline-around-text-input-boxes-chrome */
+#search-input:focus {
+  outline: none;
+}
+
+#search-button:hover, #burguer {
+  cursor: pointer;
+}
+
+main {
+  background-color: rgb(63, 63, 63);
+  min-height: 100vh;
+}
+
+#movies {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+#movies section {
+  position: relative;
+  width: 210px;
+  text-align: center;
+  margin: 10px 5px;
+}
+
+.card {
+  transition: 0.5s;
+}
+
+.card:hover{
+  /* https://pt.stackoverflow.com/questions/374212/efeito-aparecer-texto-quando-passa-o-mouse-e-transpar%C3%AAncia-na-foto */
+  transition: 0.5s;
+  filter: opacity(30%);
+}
+
+.icon {
+  position: absolute;
+  right: 0;
+  margin: 10px;
+  display: none;
+  z-index: 99;
+  filter: opacity(100%);
+
+}
+
+.icon:hover {
+  cursor: pointer;
+  background-color: rgba(36, 36, 36, 0.679);
+  border-radius: 50%;
+
+}
+
+#movies section:hover .icon{
+  display: block;
+  filter: opacity(100%);
+}
+
+#info-container {
+  position: fixed;
+  width: 100vw;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+#info{
+  color: white;
+  width: 60vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+#close-info {
+  position: fixed;
+  right: 0;
+  margin: 40px 40px;
+}
+
+#close-info:hover {
+  cursor: pointer;
+}
+
+#rating {
+  margin: 10px 0;
+}
+
+#read-more {
+  color: rgb(43, 43, 255);
+  text-decoration: underline;
+}
+
+#read-more:hover {
+  cursor: pointer;
+}
+
+aside {
+  position: fixed;
+  background-color: rgba(36, 36, 36, 0.9);
+  height: 100vh;
+  width: 400px;
+  top: 0;
+  right: 0;
+  z-index: 100;
+  display: none;
+  animation: go-from 1s;
+  overflow: auto;
+
+}
+
+/* https://www.alura.com.br/artigos/css-animacoes-com-transitions-animations */
+@keyframes go-from {
+  from {
+    transform: translateX(400px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.go-back {
+  animation: go-back 1s;
+}
+
+@keyframes go-back {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(400px);
+  }
+}
+
+#aside-container {
+  margin-top: 50px;
+  color: white;
+  padding: 20px;
+}
+
+#close-aside {
+  cursor: pointer;
+  margin-left: 363px;
+  margin-top: 17px;
+}
+
+#genres {
+  list-style: none;
+}
+
+#genres li {
+  margin: 10px 5px;
+}
+#genres li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.showMenu {
+  display: block;
+  /* transform: translateX(70%); */
+}
+
+@media (max-width: 840px) {
+  h1 {
+    font-size: 21px;
+  }
+
+  #search-input {
+    max-width: 150px;
+  }
+
+  aside {
+    width: 260px;
+  }
+
+  @keyframes go-from {
+    from {
+      transform: translateX(260px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+
+  #close-aside {
+    margin-left: 223px;
+    margin-top: 13px;
+  }
+}
